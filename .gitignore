@@ -1,0 +1,13 @@
+# Dependency directories
+node_modules/
+
+# Dotenv environment variables file
+.env
+.env.test
+
+# Visual Studio Code
+.vscode
+
+# MacOS
+.Trash
+.DS_Store

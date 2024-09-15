@@ -1,0 +1,32 @@
+.cost-cotainer-items{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+#small-button-text {
+    color: black;
+    font-size: 10px;
+    padding-bottom: 20px;
+}
+
+.text {
+    color: var(--atelier-sidefyn-pink);
+}
+
+.costs {
+    color: grey;
+    text-align: right;
+}
+
+@media screen and (max-width: 840px) {
+
+    .cost-cotainer-items{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .costs{
+        text-align: left;
+    }
+}

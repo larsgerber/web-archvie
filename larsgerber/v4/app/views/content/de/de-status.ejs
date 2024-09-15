@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang='de'>
+
+<%- include('../../partials/de/de-head') %>
+
+<body id="eventListener">
+
+    <%- include('../../partials/de/de-header') %>
+
+    <main>
+        <article>
+
+            <h3>Uptime</h3>
+            <p>
+                <span><%= serverUptime %></span>
+            </p>
+
+            <h3>Requests</h3>
+            <p>
+                Day: <span><%= aDayAgo %></span>
+                Hour: <span><%= aHouAgo %></span> 
+                Min: <span><%= aMinAgo %></span> 
+            </p>
+
+            <h3>Memory</h3>
+            <p>
+                Usage: <span><%= serverMemory %></span>
+            </p>
+
+        </article>
+    </main>
+
+    <%- include('../../partials/de/de-footer') %>
+
+    <script type="text/javascript" src="/js/app.js"></script>
+
+</body>
+
+</html>

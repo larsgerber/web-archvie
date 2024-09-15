@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link href="https://fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="icon" th:href="@{/images/icons/icon-white-black.png}">
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js}"></script>
+    <script th:src="@{/js/javascript.js}"></script>
+    <title>Atelier Sidefyn</title>
+</head>
+
+<body onresize="closeMenu()">
+
+<section id="page">
+
+    <header th:insert="~{fragments/frag-header :: header}"></header>
+
+    <div id="banner-area">
+        <div id="div-btn-toggle-menu">
+            <button id="btn-toggle-menu" onclick="showAndHideBurgerMenu()">&#9776;
+                <span id="open-close">open</span>
+            </button>
+        </div>
+        <img id="banner" th:src="@{/images/banner.jpg}" alt="Banner">
+    </div>
+
+    <main>
+
+        <h1>Aktuelles</h1> Leider gibt es nichts Aktuelles :/
+
+    </main>
+
+    <footer th:insert="~{fragments/frag-footer :: footer}"></footer>
+
+</section>
+
+</body>
+
+</html>

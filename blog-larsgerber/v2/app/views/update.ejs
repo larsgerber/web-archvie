@@ -1,0 +1,99 @@
+<%- include('partials/header'); -%>
+
+<h1><%= title %></h1>
+
+<form action="javascript:void(0);">
+    <label for="title">Blog title:</label>
+    <input type="text" id="title" name="title" value="<%= blog.title %>" required pattern=".*\S+.*" />
+    <label for="snippet">Blog snippet:</label>
+    <input type="text" id="snippet" name="snippet" value="<%= blog.snippet %>" required pattern=".*\S+.*" />
+    <label for="body">Blog body:</label>
+    <textarea id="body" name="body" required pattern=".*\S+.*"><%= blog.body %></textarea>
+    <div class="container-buttons">
+        <button class="btn-update">Update</button>
+        <button class="btn-cancel">Cancel</button>
+
+        <div class="container-checkbox">
+            <input class="inp-cbx" id="publish" type="checkbox" />
+            <label class="cbx" for="publish">
+                <span>
+                    <svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                    </svg>
+                </span>
+                <span>publish?</span>
+            </label>
+
+            <!--SVG Sprites-->
+            <svg class="inline-svg">
+                <symbol id="check" viewbox="0 0 12 10">
+                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                </symbol>
+            </svg>
+        </div>
+
+    </div>
+</form>
+
+<script>
+    document.getElementById("publish").checked = <%= blog.public %>;
+
+    // update button
+    const update = document.querySelector("button.btn-update");
+
+    update.addEventListener("click", (e) => {
+        const endpoint = "/blogs/update/<%= blog._id %>";
+
+        const data = {
+            title: document.getElementById("title").value,
+            snippet: document.getElementById("snippet").value,
+            body: document.getElementById("body").value,
+            public: document.getElementById("publish").checked,
+        };
+
+        function isValid(data) {
+            if (!data.title.replace(/\s/g, "").length) {
+                return false;
+            }
+            if (!data.snippet.replace(/\s/g, "").length) {
+                return false;
+            }
+            if (!data.body.replace(/\s/g, "").length) {
+                return false;
+            }
+            return true;
+        }
+
+        if (isValid(data)) {
+            fetch(endpoint, {
+                method: "PUT",
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then(function (response) {
+                    if (response.status === "success") {
+                        window.location.href = response.redirect;
+                    } else {
+                        Swal.fire({
+                            text: 'This title already exists!',
+                            confirmButtonText: 'Okey'
+                        });
+                    }
+                })
+                .catch((err) => alert(err));
+        }
+    });
+
+    // cancle button
+    const cancel = document.querySelector("button.btn-cancel");
+
+    cancel.addEventListener('click', (e) => {
+        window.open('/blogs/<%= blog.url %>', "_self");
+    });
+
+</script>
+
+<%- include('partials/footer'); -%>

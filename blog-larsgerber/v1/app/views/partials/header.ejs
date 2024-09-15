@@ -1,0 +1,20 @@
+<%- include('head'); -%>
+
+<header>
+  <div class="container">
+    <nav id="navigation">
+      <a href="/" class="logo">Welcome<% if (user) { %>, <%= name %><% } %></a>
+      <a aria-label="mobile menu" class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+      <ul class="menu-left">
+        <li><a href="/blogs">Blogs</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <% if (user) { %><li><a href="/logout">Log out</a></li><% } %>
+      </ul>
+    </nav>
+  </div>
+</header>

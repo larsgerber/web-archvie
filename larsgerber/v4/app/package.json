@@ -1,0 +1,39 @@
+{
+  "name": "nodejs-project",
+  "version": "1.0.0",
+  "description": "nodejs-project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shargeforce/nodejs.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "captcha",
+    "sass",
+    "json"
+  ],
+  "author": "Lars Gerber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shargeforce/nodejs/issues"
+  },
+  "homepage": "https://github.com/shargeforce/nodejs#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "config": "^3.3.1",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.0.0",
+    "express-partial-templates": "^0.2.0",
+    "express-recaptcha": "^5.0.1",
+    "nodemailer": "^4.1.0",
+    "request": "^2.88.2",
+    "systeminformation": "^4.26.9"
+  }
+}

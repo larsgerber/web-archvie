@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link href="https://fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='../css/main.css'>
+    <!-- <link rel='stylesheet' type='text/css' href='css'> -->
+    <link rel='shortcut icon' type='image/x-icon' href='../images/icons/icon-white-black.png' />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <title>Atelier Sidefyn</title>
+</head>
+
+<body onresize="closeMenu()">
+
+    <section id="page">
+
+        <header>
+            <nav id="sidebar">
+                <ul>
+                    <li><a href="../index.html">Startseite</a></li>
+                    <li><a href="about.html">Über mich</a></li>
+                    <li class="parent" onmouseenter="openSubmenu()" onmouseleave="closeSubmenuSlow()"><a href="deals.html">Angebote</a>
+                        <ul class="submenu">
+                            <li><a href="horse-riding.html">> Reitangebote</a></li>
+                            <li><a href="guidance.html">> Beratung</a></li>
+                            <li><a href="costs.html">> Preise</a></li>
+                            <li><a href="latest.html">> Aktuelles</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="agb.html">AGB's</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="banner-area">
+            <div id="div-btn-toggle-menu">
+                <button id="btn-toggle-menu" onclick="showAndHideBurgerMenu()">&#9776;
+                    <span id="open-close">open</span>
+                </button>
+            </div>
+            <img id="banner" src="../images/banner.jpg" alt="hintergrund">
+        </div>
+
+        <main>
+            <h1>Reiten</h1>
+                <div class="horse-container-item">
+                <img id="bild10" src="../images/kinder.jpg" alt="Kinder mit Pferd">
+                    <div class="horse-text-container">
+                        <h3>Pony-Kindernachmittag</h3>
+                        <p>Reiten für kleine Pferdefans</p>
+                        <p>In einer Kleingruppe von max. 2 Kindern, wirst du liebevoll mit dem Pony vertraut gemacht. Du
+                            lernst Pferdepflege und reiten auf einem guten Freund ! Ein z'Vieri und Versicherung ist im
+                            Preis inbegriffen. (Kinder bis ca. 1m25cm Körpergrösse und max. 40 kg)</p>
+
+                    </div>
+                </div>
+
+                <div class="horse-container-item">
+                <img id="bild11" src="../images/mamapferd.jpg" alt="Mama mit Pferd">
+                    <div class="horse-text-container">
+                        <h3>Eltern-Kind-Reiten</h3>
+                        <p>Unter Anleitung putzt und sattelt Ihr das Pony gemeinsam. Im Gelände führt die Erwachsene Person
+                            das Pony. Das Kind darf reiten.</p>
+                    </div>
+                </div>
+                <p>Das Tragen eines Reithelms oder Velohelms ist obligatorisch!
+                <p>
+                <p>Im Stundenpreis ist eine Versicherung eingeschlossen!</p>
+        </main>
+
+        <footer>
+            <address>
+                &copy;2019 Franziska Gerber<br>
+                Atelier Sidefyn<br>
+                Kaufdorfstrasse 38<br>
+                3125 Toffen<br>
+            </address>
+        </footer>
+
+    </section>
+
+    <script type="text/javascript" src="../js/javascript.js"></script>
+</body>
+
+</html>
+
+
+<style>
+    .horse-container-item{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+#bild10, #bild11{
+    padding-right: 30px;
+    height: 200px;
+}
+
+@media screen and (max-width: 550px){
+    .horse-container-item{
+    flex-direction: column-reverse;
+    align-items: center;
+}
+#bild10, #bild11{
+    padding: 20px;
+}
+}
+
+</style>

@@ -1,0 +1,261 @@
+:root {
+    --primary-color: rgba(255, 255, 255, 1);
+    --primary-grey: #777777;
+    --atelier-sidefyn-pink: rgba(255, 0, 255, 1);
+    --overlay-color: rgba(255, 255, 255, 0.8);
+    --border-color: #DEDCD9;
+    --background-color: rgba(255, 255, 255, 0.8);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Droid Sans", arial, sans-serif;
+    background-image: url("../images/hintergrund.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--overlay-color);
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto minmax(100px, 1200px) auto;
+    grid-template-rows: 55px 230px auto minmax(85px, 90px);
+}
+
+header {
+    /*! GRID*/
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    /*? GRID*/
+
+    background-color: var(--atelier-sidefyn-pink);
+}
+
+#banner-area {
+    /*! GRID*/
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    /*? GRID*/
+}
+
+#banner {
+    display: block;
+    position: initial;
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    /*! GRID*/
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    /*? GRID*/
+
+    background-color: var(--primary-color);
+}
+
+footer {
+    /*! GRID*/
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    /*? GRID*/
+
+    background-color: var(--atelier-sidefyn-pink);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header nav {
+    padding: 20px 20px 0px 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    list-style-type: none;
+}
+
+a {
+    /*text-decoration: none;*/
+    color: var(--primary-color);
+    -webkit-transition: color ease-in 0.1s;
+    -moz-transition: color ease-in 0.1s;
+    -o-transition: color ease-in 0.1s;
+    transition: color ease-in 0.1s;
+}
+
+section h1 {
+    color: var(--atelier-sidefyn-pink);
+    font-family: 'Niconne', cursive;
+    font-weight: 400;
+    font-size: 3.8rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+section h2 {
+    color: var(--atelier-sidefyn-pink);
+    font-family: 'Niconne', cursive;
+    font-weight: 400;
+    font-size: 1.9rem;
+}
+
+section h3 {
+    color: var(--atelier-sidefyn-pink);
+}
+
+footer address {
+    color: var(--primary-color);
+    font-style: normal;
+    padding-right: 6px;
+}
+
+.signature {
+    color: var(--atelier-sidefyn-pink);
+    font-family: 'Niconne', cursive;
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+main {
+    padding: 0 30px 30px 30px;
+}
+
+#div-btn-toggle-menu {
+    display: none;
+}
+
+nav > ul > li ul {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+
+}
+
+.navItemActive{
+    text-decoration: underline;
+}
+
+.navItemNotActive{
+    text-decoration: none;
+}
+
+.submenu.open {
+    visibility: visible;
+    background-color: var(--atelier-sidefyn-pink);
+    border: white solid;
+}
+
+@media screen and (max-width: 1200px) {
+
+    html,
+    body {
+        background-image: none;
+    }
+
+    .navItemActive{
+        text-decoration: none;
+        color: var(--atelier-sidefyn-pink);
+    }
+
+    section {
+        grid-template-columns: auto minmax(100px, 1200px) auto;
+        grid-template-rows: 0px 230px auto minmax(85px, 90px);
+        background: none;
+    }
+
+    #sidebar {
+        position: fixed;
+        width: 300px;
+        height: 100%;
+        background: #000000;
+        left: -500px;
+        transition: .4s;
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+
+    #btn-toggle-menu {
+        font-size: 30px;
+        cursor: pointer;
+        padding-top: 15px;
+        padding-left: 20px;
+        border: none;
+        color: white;
+        background-color: transparent;
+        position: fixed;
+        text-shadow: 1px 1px var(--atelier-sidefyn-pink), 2px 2px black;
+    }
+
+    #div-btn-toggle-menu {
+        display: block;
+    }
+
+    a {
+        font-size: 1.7rem;
+    }
+
+    ul #submenu-container li a:hover, ul li a:hover {
+        color: var(--atelier-sidefyn-pink);
+    }
+
+    ul #submenu-container {
+        background: transparent;
+        display: none;
+        padding: 0 0 0 20px;
+        border: none;
+
+    }
+
+    nav ul {
+        list-style: none;
+        flex-direction: column;
+        font-size: 20px;
+        line-height: 35px;
+        padding-left: 1rem;
+        padding-top: 5rem;
+    }
+
+    .submenu.open {
+        border: none;
+        background-color: transparent;
+        padding-left: 1rem;
+        transition: 2s;
+    }
+
+    nav > ul > li ul {
+        visibility: collapse;
+        position: relative;
+        padding: 0;
+    }
+}

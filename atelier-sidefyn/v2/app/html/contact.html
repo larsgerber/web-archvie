@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link href="https://fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='../css/main.css'>
+    <!-- <link rel='stylesheet' type='text/css' href='css'> -->
+    <link rel='shortcut icon' type='image/x-icon' href='../images/icons/icon-white-black.png' />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <title>Atelier Sidefyn</title>
+</head>
+
+<body onresize="closeMenu()">
+
+    <section id="page">
+
+        <header>
+            <nav id="sidebar">
+                <ul>
+                    <li><a href="../index.html">Startseite</a></li>
+                    <li><a href="about.html">Über mich</a></li>
+                    <li class="parent" onmouseenter="openSubmenu()" onmouseleave="closeSubmenuSlow()"><a href="deals.html">Angebote</a>
+                        <ul class="submenu">
+                            <li><a href="horse-riding.html">> Reitangebote</a></li>
+                            <li><a href="guidance.html">> Beratung</a></li>
+                            <li><a href="costs.html">> Preise</a></li>
+                            <li><a href="latest.html">> Aktuelles</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="agb.html">AGB's</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="banner-area">
+            <div id="div-btn-toggle-menu">
+                <button id="btn-toggle-menu" onclick="showAndHideBurgerMenu()">&#9776;
+                    <span id="open-close">open</span>
+                </button>
+            </div>
+            <img id="banner" src="../images/banner.jpg" alt="hintergrund">
+        </div>
+
+        <main>
+            
+            <h1>Kontakt</h1>
+            <div id="text-container">
+                <h2>Atelier Sidefyn<br/></h2>
+                <div id="andress-container">
+                    <p>Kaufdorfstrasse 38</p>
+                    <p>3125 Toffen</p>
+                    <p>+41 79 243 99 40</p>
+                    <a href="mailto:info@atelier-sidefyn.ch?subject=Ihr%20Anliegen:"
+                    style="font-size: 16px; color: black;">info@atelier-sidefyn.ch</a>
+                </div>
+
+                <h2>Wegbeschreibung<br/></h2>
+                <div id="map-container">
+                    <iframe id="map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d682.1383154744153!2d7.491846329258312!3d46.85248361584986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e49aa092d0375%3A0xe6e835206e6b9cd3!2sKaufdorfstrasse+38%2C+3125+Toffen!5e0!3m2!1sde!2sch!4v1552066988093"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <address>
+                &copy;2019 Franziska Gerber<br>
+                Atelier Sidefyn<br>
+                Kaufdorfstrasse 38<br>
+                3125 Toffen<br>
+            </address>
+        </footer>
+
+    </section>
+
+    <script type="text/javascript" src="../js/javascript.js"></script>
+</body>
+
+</html>
+
+<style>
+    .andress-container{
+    padding-bottom: 40px;
+    padding-top: 4px;
+    color: black;
+}
+
+#contact-text-container{
+    padding: 0 30px 0 30px;
+}
+
+
+#map-container{
+    padding: 20px 0 40px 0;
+}
+
+#map{
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+
+#subject{
+    height:200px;
+}
+
+section h2 {
+    font-size: 3rem;
+}
+</style>

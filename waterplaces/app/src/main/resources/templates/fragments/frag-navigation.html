@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div id="navigation">
+    <nav>
+        <ul>
+            <li><a href="/spots" th:class="${#httpServletRequest.getRequestURI() == '/spots' ? 'navItemActive' : 'navItemNotActive'}">spots</a></li>
+            <li><a href="/findspot" th:class="${#httpServletRequest.getRequestURI() == '/findspot' ? 'navItemActive' : 'navItemNotActive'}">find spot</a></li>
+            <li> <a href="/sendspot" th:class="${#httpServletRequest.getRequestURI() == '/sendspot' ? 'navItemActive' : 'navItemNotActive'}">send spot</a></li>
+            <li><a href="/about" th:class="${#httpServletRequest.getRequestURI() == '/about' ? 'navItemActive' : 'navItemNotActive'}">about us</a></li>
+            <li><a href="/contact" th:class="${#httpServletRequest.getRequestURI() == '/contact' ? 'navItemActive' : 'navItemNotActive'}">contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+</html>
+
+

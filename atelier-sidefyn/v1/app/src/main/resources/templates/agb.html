@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link href="https://fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/agb.css}" />
+    <link rel="icon" th:href="@{/images/icons/icon-white-black.png}">
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js}"></script>
+    <script th:src="@{/js/javascript.js}"></script>
+    <title>Atelier Sidefyn</title>
+</head>
+
+<body onresize="closeMenu()">
+
+<section id="page">
+
+    <header th:insert="~{fragments/frag-header :: header}"></header>
+
+    <div id="banner-area">
+        <div id="div-btn-toggle-menu">
+            <button id="btn-toggle-menu" onclick="showAndHideBurgerMenu()">&#9776;
+                <span id="open-close">open</span>
+            </button>
+        </div>
+        <img id="banner" th:src="@{/images/banner.jpg}" alt="Banner">
+    </div>
+
+    <main>
+
+        <h1>AGB's</h1>
+        <div id="text-container">
+            <h3>1. Anmeldung</h3>
+            <p>Eine mündliche Anmeldung für einen Kindernachmittag, eine Reitstunde, Nachhilfeunterricht, Coaching oder Energiearbeit sowie Lager und Kurse gilt als definitiv ebenso wie eine schriftliche. Für Lager ist das Ausfüllen eines Anmeldeformulars erforderlich, damit die Buchung per Post definitiv bestätigt wird.</p>
+
+            <h3>2. Zahlung</h3>
+            <p>Kindernachmittage, Reitstunden, Nachhilfeunterricht, Beratungen oder Energiearbeit sind nach deren Ende bar zu bezahlen. Für Lager und Kurse bitten wir die Kosten nach Erhalt der Bestätigung mit Rechnung mittels Zahlungsangaben direkt auf unser Bankkonto zu überweisen.</p>
+
+            <h3>3. Annullation</h3>
+            <p>Müssen Sie Ihre angemeldete Kindernachmittage, Reitstunden, Nachhilfeunterricht, Coaching oder Energiearbeit aus eigenen Gründen annullieren, bitten wir Sie, uns dies immer möglichst früh mitzuteilen. So können Unkosten und Umtriebe vermieden werden. Bei Abmeldungen gelten folgende Bestimmungen: 3.1 Kindernachmittage, Reitstunden, Nachhilfeunterricht, Coaching oder Energiearbeit</p>
+
+            <ul>
+                <li>Abmeldung am gleichen Tag: 1/2 Preis des angemeldeten Angebots</li>
+                <li>Abmeldung ab 2 Stunden vor Beginn: 100% des angemeldeten Angebots</li>
+            </ul>
+
+            <h3>3.2 Lager</h3>
+
+            <ul>
+                <li>bis 30 Tage vor Beginn des Reitlagers: CHF 60.00 pro gebuchte Person</li>
+                <li>bis 15 Tage vor Beginn des Reitlagers: 50% des Reitlagerpreises</li>
+                <li>14 - 0 Tage vor Beginn des Reitlagers: 100% des Reitlagerpreises</li>
+            </ul>
+
+            <h3>3.3 Lager und Kurse</h3>
+
+            <ul>
+                <li>nach Erhalt der schriftlichen Bestätigung mit Rechnung: Anzahlung von Fr. 200.--. Der Restbetrag ist bei Lagerbeginn bar zu bezahlen oder eine Kopie der Banküberweisung abzugeben.
+                </li>
+                <li>im Krankheitsfall oder bei Unfall: Betrag in CHF in Absprache mit der Kurs-/Lagerleitung</li>
+            </ul>
+
+            <h3>4. Verspätetes Eintreffen/Nichterscheinen zum angemeldeten Lager, Kindernachmittag, Reitstunde,
+                Nachhilfeunterricht, Coaching oder Energiearbeit</h3>
+            <p>Sollte man verspätet zum vereinbarten Kindernachmittag, Reitstunde, Nachhilfeunterricht, Coaching oder Energiearbeit eintreffen, kann man wenn möglich noch teilnehmen. Es verpflichtet jedoch zur Bezahlung des voll gebuchten Angebots ohne deren Verlängerung. Sollte man zu einem Kindernachmittag zu spät eintreffen und die Gruppe hat nach einer angemessenen Wartezeit die Ranch bereits verlassen, wird der volle Preis für den angemeldeten Kindernachmittag geschuldet.</p>
+
+            <h3>5. Unwetter</h3>
+            <p>Wir behalten uns das Recht vor, Kindernachmittage und Reitstunden wegen wirklich schlechtem Unwetter aus Sicherheitsgründen abzusagen. In diesem Fall stellen wir einen Gutschein aus. Muss ein Reitausflug wegen höherer Gewalt abgekürzt werden, besteht kein Recht auf Rückerstattung. Sollten Sie aus eigenem Ermessen die angemeldete Reitstunde oder den Ausritt absagen, gelten die obengenannten Annullationskosten gemäss Punkt 3.
+            </p>
+
+            <h3>7. Haftung</h3>
+            <p>Der Aufenthalt auf dem Hof erfolgt auf eigene Verantwortung. Für Kinder und Jugendliche sind die Eltern resp. Aufsichtspersonen verantwortlich.</p>
+
+            <h3>8. Gültigkeit</h3>
+            <p>Die Allgemeinen Bedingungen sind seit 1. Januar 2015 gültig.</p>
+        </div>
+
+    </main>
+
+    <footer th:insert="~{fragments/frag-footer :: footer}"></footer>
+
+</section>
+
+</body>
+
+</html>

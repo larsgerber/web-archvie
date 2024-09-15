@@ -1,0 +1,12 @@
+{
+    "keys": {
+        "mail": {
+            "username": "",
+            "password": ""
+        },
+        "catpcha": {
+            "secretKey": "",
+            "publicKey": ""
+        }
+    }
+}

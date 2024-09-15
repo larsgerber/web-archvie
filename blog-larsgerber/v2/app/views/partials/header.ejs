@@ -1,0 +1,26 @@
+<%- include('head'); -%>
+
+<header>
+  <div class="container">
+    <nav id="navigation">
+      <a href="/" class="logo">
+      <div class="container-logo">
+        <svg class="logo">
+          <use xlink:href="/logo/2.svg#Layer_1"></use>
+        </svg>
+        <div>ars<br>erber</div>
+      </div>
+    </a>
+      <a aria-label="mobile menu" class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+      <ul class="menu-left">
+        <li><a href="https://blog.larsgerber.ch/">Blogs</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <% if (user) { %><li><a href="/logout">Log out</a></li><% } %>
+      </ul>
+    </nav>
+  </div>
+</header>

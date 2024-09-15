@@ -1,0 +1,47 @@
+
+.all-contact-container h2 {
+    color: var(--special-white);
+    font-size: 2rem;
+    padding: 0 0 20px 0;
+}
+
+.all-contact-container {
+    padding: 50px 0 0 50px;
+    width: 60%;
+}
+
+.form-conent-container {
+    padding-left: 50px;
+}
+
+
+input[type=text], input[type=email], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--special-white);;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: none;
+    font-family: 'Roboto', Arial, sans-serif
+}
+
+input[type=submit] {
+    background-color: var(--olive-color);
+    color: var(--special-white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: var(--special-white);
+    color: var(--olive-color);
+}
+
+label {
+    color: white;
+    font-size: 1.4rem;
+}

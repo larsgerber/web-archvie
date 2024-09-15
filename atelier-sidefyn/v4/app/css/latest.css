@@ -1,0 +1,40 @@
+#bild2 {
+    height: 213px;
+    width: 286px;
+}
+
+#bild3 {
+    height: 345px;
+    width: 462px;
+}
+
+#picture-box {
+    padding-bottom: 15px;
+    margin-top: -20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+@media screen and (max-width: 930px) {
+
+    #picture-box {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    #picture-box {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    #bild2, #bild3 {
+        height: auto;
+        width: 100%;
+        padding: 10px;
+        display: block;
+    }
+}

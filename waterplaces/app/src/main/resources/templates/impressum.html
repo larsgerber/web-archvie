@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>impressum | Water Places</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mr+De+Haviland" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/impressum.css}"/>
+    <link rel="icon" th:href="@{/images/icon/icon.png}">
+</head>
+
+<body>
+
+<section id="page">
+
+    <header>
+        <div th:replace="~{fragments/frag-logo :: #logo}"></div>
+        <div th:replace="~{fragments/frag-navigation :: #navigation}"></div>
+    </header>
+
+    <main>
+
+        <div class="all-impressum-container">
+            <h2>Impressum</h2>
+            <div class="text-content-container">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est iste modi perferendis, porro sequi
+                    sint.
+                    Accusamus aspernatur at, consequatur deleniti dicta, eum ex minus odit pariatur possimus provident
+                    quas
+                    quia saepe sed sint ullam veniam vero voluptatibus. Aliquid delectus laboriosam natus possimus
+                    veritatis. Aliquid aperiam at deleniti doloremque explicabo impedit ipsam, laborum minima mollitia
+                    obcaecati odio officia perspiciatis quisquam reiciendis repellendus. Aut dolore eaque illum minus
+                    nostrum porro. Mollitia, odit, officia. Cum, enim eos esse excepturi fugiat id incidunt, labore,
+                    maiores
+                    minima nostrum quasi quod recusandae rem ut voluptatibus! Accusantium aliquam, aliquid beatae
+                    dolorum
+                    illo itaque iure nihil porro sunt.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer" th:insert="~{fragments/frag-footer :: footer}"></div>
+    </footer>
+
+</section>
+
+</body>
+
+</html>
+

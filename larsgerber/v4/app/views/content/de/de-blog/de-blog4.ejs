@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang='de'>
+
+<%- include('../../../partials/de/de-head') %>
+
+<body id="eventListener">
+
+    <%- include('../../../partials/de/de-header') %>
+
+    <main id="up">
+
+        <article>
+            <h1>Pi-hole Projekt einrichten</h1>
+            <h2 class="subtitle">auf dem Raspberry Pi 4</h2>
+
+            <p>
+                Was ist Pi-Hole? Pi-hole ist eine freie Software mit der Funktion eines Tracking- und Werbeblockers
+                sowie eines optionalen DHCP-Servers. Die Software wird als DNS-Server in ein bestehendes Netzwerk
+                integriert und steht damit allen Geräten im Netzwerk zur Verfügung, deren DNS-Einstellungen sich
+                konfigurieren lassen. In diesem Blog erkläre ich dir, wie du deinen eigenen Werbeblocker ganz einfach
+                erstellen kannst.
+            </p>
+
+            <h2>Die Installation</h2>
+
+            <p>
+                Im Terminal folgenden Befehl eingeben und alle Meldungen mit Enter bestätigen.
+            </p>
+
+            <div class="codeblock">
+                <div class="copy" onclick="copy(this)"></div>
+                <div class="code">curl -sSL https://install.pi-hole.net | bash</div>
+            </div>
+
+            <p>
+                Alle nachfolgenden Einstellungen wie auf den Bilder nachstellen und mit Ok und Enter bestätigen!
+            </p>
+
+            <img class=projects src=/img/prints/pi-hole1.png>
+            <img class=projects src=/img/prints/pi-hole2.png>
+            <img class=projects src=/img/prints/pi-hole3.png>
+            <img class=projects src=/img/prints/pi-hole4.png>
+            <img class=projects src=/img/prints/pi-hole5.png>
+            <img class=projects src=/img/prints/pi-hole6.png>
+            <img class=projects src=/img/prints/pi-hole7.png>
+            <img class=projects src=/img/prints/pi-hole8.png>
+            <img class=projects src=/img/prints/pi-hole9.png>
+            <img class=projects src=/img/prints/pi-hole10.png>
+            <img class=projects src=/img/prints/pi-hole11.png>
+            <img class=projects src=/img/prints/pi-hole12.png>
+
+            <p>
+                Das Webinterface Passwort sollte am besten neu setzen. Danach den RasPi neustarten.
+            </p>
+
+            <div class="codeblock">
+                <div class="copy" onclick="copy(this)"></div>
+                <div class="code">sudo pihole -a -p</div>
+            </div>
+
+            <div class="codeblock">
+                <div class="copy" onclick="copy(this)"></div>
+                <div class="code">sudo reboot now</div>
+            </div>
+
+            <img class=projects src=/img/prints/pi-hole13.png>
+
+            <a href="#up" class="smooth-goto">Nach Oben</a>
+
+        </article>
+
+    </main>
+
+    <%- include('../../../partials/de/de-footer') %>
+
+    <script type="text/javascript" src="/js/app.js"></script>
+
+</body>
+
+</html>

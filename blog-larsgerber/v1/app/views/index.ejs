@@ -1,0 +1,26 @@
+<%- include('partials/header'); -%>
+
+<nav class="nav-blog">
+  <h1><%= title %></h1>
+  <% if (user) { %>
+  <a href="/blogs/create">Add new blog</a>
+  <% } %>
+</nav>
+
+<% if (blogs.length > 0) { %>
+<% blogs.forEach(blog => { %>
+
+<div class="blogs">
+  <div class="post">
+    <h2><%= blog.title %></h2>
+    <p><%= blog.snippet %></p>
+    <a href="/blogs/<%= blog._id %>">Read more</a>
+  </div>
+</div>
+
+<% }) %>
+<% } else { %>
+<p>There are no blogs to display...</p>
+<% } %>
+
+<%- include('partials/footer'); -%>

@@ -1,0 +1,14 @@
+<%- include('partials/header'); -%>
+
+<div class="container-error">
+  <h1><%= errorcode %></h1>
+  <% if(errorcode === 404) { %>
+  <p>The link you clicked may be broken or the <br /> <%= url %> may have been removed.</p>
+  <% } else { %> 
+  <p>You shouldn't see this. Please close your eyes.</p>
+  <% } %> 
+  <small>Visit the <a href="/blogs">blog page</a> or <a href="/contact">contact</a> me</small>
+</div>
+
+
+<%- include('partials/footer'); -%>

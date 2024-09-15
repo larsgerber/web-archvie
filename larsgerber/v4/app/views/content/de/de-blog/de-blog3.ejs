@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang='de'>
+
+<%- include('../../../partials/de/de-head') %>
+
+<body id="eventListener">
+
+    <%- include('../../../partials/de/de-header') %>
+
+    <main id="up">
+
+        <article>
+            <h1>Minecraft Server hosten</h1>
+            <h2 class="subtitle">auf dem Raspberry Pi 4</h2>
+
+            <p>
+                In diesem kleinen Blog erkläre ich dir, wie man ganz einfach einen kleinen Minecraft Server aufsetzten
+                kannst. Wenn du meinen Blog über Webhosting gelesen hast, weisst du ganz genau, was du machen musst,
+                damit deine Freunde von Extern auf den Server zugreifen können. Dazu brachts du dann die IP und den
+                Port, auf welchem Minecraft läuft.
+            </p>
+
+            <h2>Java installieren</h2>
+            <p>
+                Zuerst suchen wir nach der neusten Java Headless Version. Da die Headless Version völlig ausreicht,
+                installieren wir diese. Danach die Installation prüfen.
+            </p>
+
+            <div class="codeblock">
+                <div class="copy" onclick="copy(this)"></div>
+                <div class="code">sudo apt search openjdk</div>
+            </div>
+
+            <img class="projects" src="/img/prints/jdk.png">
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">sudo apt install openjdk-10-jdk-headless
+java –verion</div></div>
+
+            <h2>Minecraft Server installieren</h2>
+
+            <p>
+                Gehe auf <a href="https://www.minecraft.net/de-de/download/server">minecraft.net</a> und kopiere dir die
+                Linkadresse des eingebetteten .jar Files. Danach erstellen wir im gewünschten Verzeichnis einen neuen
+                Ordner und laden das File via Termianl herunter.
+            </p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">mkdir minecraft
+cd minecraft
+wget https://Link_zur_Server.jar
+java -Xmx1024M -Xms1024M -jar server.jar nogui</div></div>
+
+            <p>
+                Nach dem automatischen Start lädt er weiter Files automatisch herunter.
+            </p>
+
+            <img class="projects" src="/img/prints/minecraft-files.png">
+
+            <p>
+                Danach muss die eula akzeptiert werden indem der Wert in der Datei eula.txt von false auf true geändert
+                wird.
+            </p>
+
+
+            <p>Anschliessend kann der letzte Befehl erneut eingegeben werden um den Minecraft Server nun endlich zu
+                starten.
+            </p>
+
+            <h2>Minecraft Server optimieren </h2>
+
+            <p>
+                Da jetzt Minecraft direkt in unserem Terminal läuft, bricht es ab, sobald wir das Terminal schliessen
+                oder mit [ctrl + c] beenden. Für das beschriebene Problem gibt es eine einfache Lösung namens screen.
+                Das kleine Tool können wir ganz einfach installieren.
+            </p>
+
+            <div class="codeblock">
+                <div class="copy" onclick="copy(this)"></div>
+                <div class="code">sudo apt install screen</div>
+            </div>
+
+            <p>
+                Das Tool erlaubt uns so viele virtuelle Terminals zu erstellen wie wir wollen. Auf diese können wir uns
+                dann verbinden und wieder trennen. Damit beim Start automatisch ein solches Terminal erstellt wird,
+                fügen wir die folgenden Befehle zur rc.local Datei hinzu. Der Startbefehl wurde wegen Platzmangel auf
+                eine neue Zeile genommen.
+            </p>
+
+            <div class="codeblock">
+                <div class="copy" onclick="copy(this)"></div>
+                <div class="code">sudo nano /etc/rc.local</div>
+            </div>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">su - root -c "screen -m -d minecraft"
+sleep 5
+screen -S minecraft -X stuff 'echo Minecraft Screen\n'
+screen -S minecraft -X stuff 'cd /home/pi/minecraft\n'
+screen -S minecraft -X stuff
+'java -Xmx1024M -Xms1024M -jar server.jar nogui\n'</div></div>
+
+
+            <div class="codeblock">
+                <div class="copy" onclick="copy(this)"></div>
+                <div class="code">sudo reboot now</div>
+            </div>
+
+            <p>
+                Der Server sollte sich jetzt automatisch starten. Falls er dies nicht tut oder du schauen möchtest, was
+                in diesem virtuellen Termial passiert, kannst du folgendes tun.
+            </p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">sudo screen -ls
+sudo screen -R minecraft</div></div>
+
+            <p>
+                Mit dem ersten Befehl kannst du dir alle verfügbaren Terminals anzeigen lassen. Mit dem zweiten kannst
+                du dich dann auf das Termial
+                verbinden. Jetzt kannst du schauen ob der Server läuft oder kannst gewisse Spieler berechtigen.
+            </p>
+
+            <img class="projects" src="/img/prints/minecraft-console.png">
+
+            <p>
+                Mit der Tastenkombination [ctrl + A + D] kannst du die Verbindung trennen.
+            </p>
+
+            <a href="#up" class="smooth-goto">Nach Oben</a>
+
+        </article>
+
+    </main>
+
+    <%- include('../../../partials/de/de-footer') %>
+
+    <script type="text/javascript" src="/js/app.js"></script>
+
+</body>
+
+</html>

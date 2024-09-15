@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>detailview | Water Places</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mr+De+Haviland" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/detailview.css}"/>
+    <link rel="icon" th:href="@{/images/icon/icon.png}">
+</head>
+
+<body>
+
+<section id="page">
+
+    <header>
+        <div th:replace="~{fragments/frag-logo :: #logo}"></div>
+        <div th:replace="~{fragments/frag-navigation :: #navigation}"></div>
+    </header>
+
+    <main>
+
+        <div class="all-detailview-container" th:object="${spot}">
+
+            <div class="image-detailview-container">
+                <img th:src="${spot.imageUrl}" th:alt="${spot.title}">
+            </div>
+
+                <div class="text-detailview-container">
+                    <h2 th:utext="${spot.title}"></h2>
+                    <p th:utext="${spot.description}"></p>
+                </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer" th:insert="~{fragments/frag-footer :: footer}"></div>
+    </footer>
+
+</section>
+
+</body>
+
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link href="https://fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <link rel="icon" th:href="@{/images/icons/icon-white-black.png}">
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js}"></script>
+    <script th:src="@{/js/javascript.js}"></script>
+    <title>Atelier Sidefyn</title>
+</head>
+
+<body onresize="closeMenu()">
+
+<section id="page">
+
+    <header th:insert="~{fragments/frag-header :: header}"></header>
+
+    <div id="banner-area">
+        <div id="div-btn-toggle-menu">
+            <button id="btn-toggle-menu" onclick="showAndHideBurgerMenu()">&#9776;
+                <span id="open-close">open</span>
+            </button>
+        </div>
+        <img id="banner" th:src="@{/images/banner.jpg}" alt="Banner">
+    </div>
+
+    <main>
+
+        <h1>Herzlich Willkommen im Atelier Sidefyn</h1>
+        <div id="text-container">
+            <div>
+                <img id="bild2" th:src="@{/images/bild2.jpg}" alt="Hund">
+            </div>
+            <div id="text-container-items">
+                <h2>In der Welt der Gefühle sind wir den Tieren unterlegen, vor allem, was die Liebe angeht.<br />
+                </h2>
+                <p>Bereits als Kind hatte ich eine besondere Beziehung zu Tieren. Als junge Pädagogin merkte ich schnell, dass ein Hund im Schulzimmer zwischenmenschliche Spannungen ausglich. Dank Tierunterstützung fand ich zu überaktiven oder verschlossenen, scheuen Kindern viel schneller Zugang und konnte mehr zu einer positiven Entwicklung beitragen.</p>
+                <p>Ich studierte schon damals an einer tierunterstützten Beratung nach. So absolvierte ich von 1998- 2001 die Ausbildung zur Beraterin. Nach vielen Umwegen habe ich endlich wieder einen passenden Ort gefunden, Menschen in schwierigen Situationen meine Unterstützung anbieten zu können.</p>
+                <p>Weiter bietet das Atelier Sidefyn einen Blumenstrauss an Weiterbildungskursen, ein Seidenatelier (Accessoires zum Kaufen, Individuelles nähen lassen oder selber nähen-gestalten) und verschiedene Reitangebote.
+                </p>
+                <p>Ich freue mich auf Ihren Besuch im Atelier Sidefyn in Toffen</p>
+                <span class="signature">Franziska Gerber</span>
+            </div>
+        </div>
+
+    </main>
+
+    <footer th:insert="~{fragments/frag-footer :: footer}"></footer>
+
+</section>
+
+</body>
+
+</html>

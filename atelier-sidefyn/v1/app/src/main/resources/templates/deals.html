@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link href="https://fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/deals.css}" />
+    <link rel="icon" th:href="@{/images/icons/icon-white-black.png}">
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js}"></script>
+    <script th:src="@{/js/javascript.js}"></script>
+    <title>Atelier Sidefyn</title>
+</head>
+
+<body onresize="closeMenu()">
+
+<section id="page">
+
+    <header th:insert="~{fragments/frag-header :: header}"></header>
+
+    <div id="banner-area">
+        <div id="div-btn-toggle-menu">
+            <button id="btn-toggle-menu" onclick="showAndHideBurgerMenu()">&#9776;
+                <span id="open-close">open</span>
+            </button>
+        </div>
+        <img id="banner" th:src="@{/images/banner.jpg}" alt="Banner">
+    </div>
+
+    <main>
+
+        <h1>Angebote</h1>
+        <div class="deals-container-item move-picture-right">
+            <a href="/guidance"><img id="bild6" th:src="@{/images/bild2.jpg}" alt="Hund"></a>
+            <div class="deals-text-container space-left">
+                <h2>Bertaung</h2>
+                <p>Unter Einbezug von Tieren fällt es oft weniger schwer über eigene Probleme zu sprechen. Auf behutsame Weise helf ich Ihnen Ihren Lebensweg zu finden, wenn Sie das Gefühl haben, dass zwischen Ihnen und den Kindern, oder dem Partner oder dem Beruf etwas nicht mehr stimmt. Alte Muster loszulassen ist für uns Menschen schwierig. Manchmal braucht es zuerst einen Zwischenschritt oder sogar einen Umweg.</p>
+            </div>
+        </div>
+
+        <div class="deals-container-item">
+            <a href="#"><img id="bild7" th:src="@{/images/stand.jpg}" alt="Stand"></a>
+            <div class="deals-text-container space-right">
+                <h2>Atelier Objekte</h2>
+                <p>Vor ein paar Jahren suchte der Verein swiss-silk Hasplerinnen. Ich lernte den Seidenfaden vom Kokon zu lösen und einen verarbeitbaren Faden daraus zu machen. Aus den Stoffen und andern Seidenerzeugnissen stelle ich kleine Accessoires und weitere Objekte her. Grösstenteils arbeite ich auf Kundenwunsch. Ein Blick in den web-shop lohnt sich!</p>
+            </div>
+        </div>
+
+        <div class="deals-container-item move-picture-right">
+            <a href="#"><img id="bild8" th:src="@{/images/türe.jpg}" alt="Türe"></a>
+            <div class="deals-text-container space-left">
+                <h2>Energiearbeit</h2>
+                <p>Reiki ist eine sehr alte Heilkunst aus Japan. Wie es wirkt ist mit heutigen Messmethoden so wenig belegbar wie die Homöopathie. Durch Auflegen meiner Hände werden Selbstheilungskräfte aktiviert. Seit meiner Reikiausbildung im Jahr 2000, habe ich gute Erfahrungen bei der eigenen Familie, Freunden und Tieren gemacht. Gerne helfe ich auch Ihnen!</p>
+            </div>
+        </div>
+
+        <div class="deals-container-item">
+            <a href="/horse-riding"><img id="bild9" th:src="@{/images/pferd.jpg}" alt="Pferd"></a>
+            <div class="deals-text-container space-right">
+                <h2>Reiten</h2>
+                <p>Speziell hat Atelier Sidefyn auch für die ganz kleinen Pferdefreunde ein Angebot. Vorallem ist Jimmely die geeignete Pferdegrösse dazu. So stimmt Schenkeleinwirkung und die Balance. Alle drei Gangarten sind so risikofrei erlernbar. </p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer th:insert="~{fragments/frag-footer :: footer}"></footer>
+
+</section>
+
+</body>
+
+</html>

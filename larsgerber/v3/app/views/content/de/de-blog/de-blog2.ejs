@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang='de'>
+
+<%- include('../../../partials/de/de-head') %>
+
+<body id="eventListener">
+
+    <%- include('../../../partials/de/de-header') %>
+
+    <main id="up">
+
+        <article>
+            <h1>Hoste dein Node.js Projekt</h1>
+            <h2 class="subtitle">mit Apache2</h2>
+
+            <p>
+                Als erstes erkläre ich unsere Ausgangslage. Wir haben ein Node.js Projekt, welches wir mit "node
+                index.js" starten können. Nach dem Start ist es zum Beispiel unter localhost:3001 oder IP_von_Host:3001
+                erreichbar. Was wir nun wollen, ist den Inhalt der Seite auf unsere Domain zu bringen. Zudem soll der
+                Raspberry beim Start unseren Node.js Server starten, um einen 503 Error zu verhindern. Die Voraussetzung
+                für diesen Blog ist ein bereits laufendes Node.js Projekt. Zudem solltest du wissen, wie man die
+                Entwicklungsumgebung auf dem Rasberry Pi einrichtet. Ich empfehle dir sehr mit git zu arbeiten um deinen
+                Code vom Computer auf deinen Rasberry Pi zu clonen. Nach dem einmaligen einrichten von Node.js bist du
+                nach den zwei Befehlen "git clone https://..." und "npm i" schon ready. Bei Fragen oder
+                Verbesserungsvorschlägen, kannst du mich gerne
+                über das Formular auf der Seite «Kontakt» anschreiben.
+            </p>
+
+            <h2>Apache konfigurieren</h2>
+            <p>
+                Im Beitrag <a href="/de/blog/become-your-own-webhoster">eigener Webhoster werden</a> habe ich dir
+                erklärt wie man den Apache2 installiert, deshalb werde ich es diesmal überspringen. Dein Node.js Projekt
+                kannst unter folgendem Verzeichnis abspeichern.
+            </p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">/var/www/dein_Projektname</div></div>
+
+            <p>Da wir das Reverse Proxy Modul verwenden, müssen wir es zuerst aktivieren.</p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod proxy_balancer
+sudo a2enmod lbmethod_byrequests
+
+sudo systemctl restart apache2</div></div>
+
+            <p>Als nächstes müssen wir unsere Seitenkonfiguration anpassen. Die folgende Konfiguration haben wir im oben
+                genannten Blog erstellt.
+            </p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">&lt;VirtualHost *:80&gt;
+        ServerName larsgerber.ch
+        DocumentRoot /var/www/larsgerber.ch/
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;</div></div>
+
+            <p>Da nun der Apache nicht mehr für die Dateiverwaltung zuständig ist, können wir die Zeile DocumentRoot
+                streichen. Dafür müssen wir den Port festlegen, worauf später Node.js die Anfragen entgegen nehmen soll.
+                Wenn aber Node.js noch nicht läuft, wird der Apache einen 503 Error zurückgeben, da er auf dem Port
+                keine Antwort erhalten hat. Deshalb habe ich eine Umleitung aktiviert. Wenn Node.js nicht läuft, leitet
+                der Apache den User automatisch an meine Statusseite um, welche nicht von mir gehostet wird. Da kann man
+                dann anschauen, ob gerade ein Maintenance Fenster offen ist oder wie lange der Server schon down ist.
+                Wie
+                man ein solches Tracking konfiguriert, werde ich in einem anderen Blog erklären. Vergiss nicht den
+                Apache danach neuzustarten.
+            </p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">&lt;VirtualHost *:80&gt;
+        ServerName larsgerber.ch
+        ProxyPreserveHost On
+        ProxyRequests Off
+        ProxyPass / http://localhost:3001/
+        ProxyPassReverse / http://localhost:3001/
+        ErrorDocument 503 https://status.larsgerber.ch
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;</div></div>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">sudo systemctl restart apache2</div></div>
+
+            <h2>Server automatisieren</h2>
+
+            <p>
+                Wenn wir jetzt in den Projektordner wechseln und Node.js mit "node index.js" lokal starten, sollte die
+                Seite von localhost nun auch über die Domain zugänglich sein.
+                Da jetzt Node direkt in unserem Terminal läuft, bricht es ab, sobald wir das Terminal schliessen oder
+                mit [ctrl + c] beenden. Für das beschriebene Problem gibt es eine einfache Lösung namens screen. Das
+                kleine Tool können wir ganz einfach installieren.
+            </p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">sudo apt install screen</div></div>
+
+            <p>Das Tool erlaubt uns so viele virtuelle Terminals zu erstellen wie wir wollen. Auf diese können wir uns
+                dann verbinden und wieder trennen. Damit beim Start automatisch ein solches Terminal erstellt wird,
+                fügen wir die folgenden Befehle zur rc.local Datei hinzu.
+            </p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">sudo nano /etc/rc.local</div></div>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">su - root -c "screen -m -d nodejs"
+sleep 5
+screen -S nodejs -X stuff 'echo nodejs Screen\n'
+screen -S nodejs -X stuff 'cd /var/www/nodejs\n'
+screen -S nodejs -X stuff 'node index.js\n'</div></div>
+
+            <p>
+                Ersetze nodejs falls gewünscht mit deinem Projektnamen. Achte aber darauf, dass der Pfad von deinem
+                Projektordner stimmt. Der Projektname wird auch der Namen des Terminals sein. Da die rc.local Datei nur
+                beim Start ausgeführt wird, musst du den Raspian neustarten.
+            </p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">sudo reboot now</div></div>
+
+            <p>Der Server sollte sich jetzt automatisch starten. Falls er dies nicht tut oder du schauen möchtest, was
+                in diesem virtuellen Termial passiert, kannst du folgendes tun.
+            </p>
+
+<div class="codeblock">
+<div class="copy" onclick="copy(this)"></div>
+<div class="code">sudo screen -ls
+sudo screen -R nodejs</div></div>
+
+            <p>
+                Mit dem ersten Befehl kannst du dir alle verfügbaren Terminals anzeigen lassen. Jetzt kannst du schauen
+                ob der Server läuft oder wieso er gecrashed ist. Mit dem zweiten kannst du dich dann auf das Termial
+                verbinden. Mit der Tastenkombination [ctrl + A + D] kannst du die Verbindung trennen.
+            </p>
+
+            <a href="#up" class="smooth-goto">Nach Oben</a>
+
+        </article>
+
+    </main>
+
+    <%- include('../../../partials/de/de-footer') %>
+
+    <script type="text/javascript" src="/js/app.js"></script>
+
+</body>
+
+</html>

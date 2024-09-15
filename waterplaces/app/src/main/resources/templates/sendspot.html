@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>sendspot | Water Places</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mr+De+Haviland" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/contactandsendspot.css}"/>
+    <link rel="icon" th:href="@{/images/icon/icon.png}">
+</head>
+
+<body>
+
+<section id="page">
+
+    <header>
+        <div th:replace="~{fragments/frag-logo :: #logo}"></div>
+        <div th:replace="~{fragments/frag-navigation :: #navigation}"></div>
+    </header>
+
+    <main>
+
+        <div class="all-contact-container">
+            <h2>Send Spot</h2>
+            <div class="form-conent-container">
+                <form action="#" method="post">
+
+                    <label for="ortsname">Name des Ortes:</label>
+                    <input type="text" id="ortsname" name="Ortsname" placeholder="Ortsname..." required>
+
+                    <label for="koordinaten">Koordinaten des Ortes:</label>
+                    <input type="text" id="koordinaten" name="Koordinaten"
+                           placeholder="Breitengrad [N] / Längengrad [E]" required>
+
+                    <label for="subject">Kurze Beschreibung des Ortes:</label>
+                    <textarea id="subject" name="Nachricht" placeholder="Schreibe etwas.." required></textarea>
+
+                    <input type="Submit" value="Senden">
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer" th:insert="~{fragments/frag-footer :: footer}"></div>
+    </footer>
+
+</section>
+
+</body>
+
+</html>
+

@@ -1,0 +1,20 @@
+.horse-container-item{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+#bild10, #bild11{
+    padding-right: 30px;
+    height: 200px;
+}
+
+@media screen and (max-width: 550px){
+    .horse-container-item{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    #bild10, #bild11{
+        padding: 20px;
+    }
+}

@@ -1,0 +1,10 @@
+.horse-container-item{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+#bild10, #bild11{
+    padding-right: 30px;
+    width: 40%;
+}

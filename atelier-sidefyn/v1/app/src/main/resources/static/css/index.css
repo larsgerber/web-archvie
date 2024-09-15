@@ -1,0 +1,33 @@
+#bild2{
+    height: 200px;
+    width: 200px;
+}
+
+#text-container {
+    display: flex;
+}
+
+#text-container-items {
+    padding-left: 30px;
+}
+
+@media screen and (max-width: 950px){
+    section h1{
+        font-size: 3.4rem;
+    }
+}
+
+@media screen and (max-width: 850px){
+    section h1{
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width: 770px){
+    #bild2{
+        display:none;
+    }
+
+    #text-container-items {
+        padding-left: 0px;
+    }
+}

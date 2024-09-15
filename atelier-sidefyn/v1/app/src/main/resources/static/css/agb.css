@@ -1,0 +1,17 @@
+#text-container{
+    padding: 0 30px 30px 30px;
+}
+#text-container ul {
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+h3, p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+@media screen and (max-width: 700px){
+    #text-container{
+        padding-left: 0px;
+    }
+}

@@ -1,0 +1,61 @@
+<%- include('partials/header'); -%>
+
+
+<div class="details">
+  <div class="details-nav">
+    <h1><%= blog.title %></h1>
+    <% if (user) { %>
+    <button class="btn-delete" data-doc="<%= blog._id %>">delete</button>
+    <button class="btn-update" data-doc="<%= blog.url %>">modify</button>
+    <% } %>
+  </div>
+  <div class="markdown-body">
+    <%- blog.body %>
+    <p>Updated: <%= new Date(blog.updatedAt).toLocaleString(); %></p>
+  </div>
+</div>
+
+<div class="loader-wrapper">
+  <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+</div>
+
+<% if (user) { %>
+<script>
+
+  // update button
+  const update = document.querySelector('button.btn-update');
+
+  update.addEventListener('click', (e) => {
+    window.open(`/blogs/update/${update.dataset.doc}`, "_self");
+  });
+
+  // delete button
+  const trashcan = document.querySelector('button.btn-delete');
+
+  trashcan.addEventListener('click', (e) => {
+    const endpoint = `/blogs/${trashcan.dataset.doc}`;
+
+    Swal.fire({
+      title: 'Do you want remove the blog?',
+      showCancelButton: true,
+      confirmButtonText: `Yes`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(endpoint, {
+          method: 'DELETE',
+        })
+          .then(response => response.json())
+          .then(data => window.location.href = data.redirect)
+          .catch(err => console.log(err));
+      }
+    })
+  });
+
+</script>
+<% } %>
+
+<%- include('partials/footer'); -%>

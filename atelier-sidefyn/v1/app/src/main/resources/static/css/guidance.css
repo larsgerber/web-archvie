@@ -1,0 +1,37 @@
+#bild4 {
+    height: 200px;
+    width: 200px;
+}
+
+#guidance-container-items{
+    display: flex;
+    justify-content: space-between;
+}
+
+#guidance-text-container{
+    padding-left: 30px;
+}
+
+@media screen and (max-width: 550px) {
+
+    #guidance-container-items{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    #guidance-text-container{
+        padding: 0;
+    }
+
+    #bild4{
+        height: auto;
+        width: 80%;
+        padding: 15px;
+        /* display: block; */
+    }
+    section h3{
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+}

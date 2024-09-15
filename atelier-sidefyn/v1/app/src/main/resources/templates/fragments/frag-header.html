@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<nav th:fragment="header" id="sidebar">
+    <ul>
+        <li><a href="/" th:class="${#httpServletRequest.getRequestURI() == '/' ? 'navItemActive' : 'navItemNotActive'}">Startseite</a></li>
+        <li><a href="/about" th:class="${#httpServletRequest.getRequestURI() == '/about' ? 'navItemActive' : 'navItemNotActive'}">Über mich</a></li>
+        <li class="parent" onmouseenter="openSubmenu()" onmouseleave="closeSubmenuSlow()"><a href="/deals" th:class="${#httpServletRequest.getRequestURI() == '/deals' ? 'navItemActive' : 'navItemNotActive'}">Angebote</a>
+            <ul class="submenu">
+                <li><a href="/horse-riding" th:class="${#httpServletRequest.getRequestURI() == '/horse-riding' ? 'navItemActive' : 'navItemNotActive'}">> Reitangebote</a></li>
+                <li><a href="/guidance" th:class="${#httpServletRequest.getRequestURI() == '/guidance' ? 'navItemActive' : 'navItemNotActive'}">> Beratung</a></li>
+                <li><a href="/costs" th:class="${#httpServletRequest.getRequestURI() == '/costs' ? 'navItemActive' : 'navItemNotActive'}">> Preise</a></li>
+                <li><a href="/latest" th:class="${#httpServletRequest.getRequestURI() == '/latest' ? 'navItemActive' : 'navItemNotActive'}">> Aktuelles</a></li>
+            </ul>
+        </li>
+        <li><a href="/agb" th:class="${#httpServletRequest.getRequestURI() == '/agb' ? 'navItemActive' : 'navItemNotActive'}">AGB's</a></li>
+        <li><a href="/contact" th:class="${#httpServletRequest.getRequestURI() == '/contact' ? 'navItemActive' : 'navItemNotActive'}">Kontakt</a></li>
+        <li><a href="/impressum" th:class="${#httpServletRequest.getRequestURI() == '/impressum' ? 'navItemActive' : 'navItemNotActive'}">Impressum</a></li>
+    </ul>
+</nav>
+
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang='en'>
+
+    <%- include('../../partials/en/en-head') %>
+
+<body id="eventListener">
+
+    <%- include('../../partials/en/en-header') %>
+
+    <main>
+
+        <form class="login-div" id="my_captcha_form" method="post">
+
+            <div class="fields" id="form">
+
+                <div id="input-field-name" class="valid"><img src="../img/svg/user.svg">
+                    <input type="text" id="name" name="name">
+                </div>
+
+                <div id="input-field-email" class="valid"><img src="../img/svg/at.svg">
+                    <input type="text" id="email" name="email">
+                </div>
+
+                <div id="input-field-subject" class="valid"><img src="../img/svg/target.svg">
+                    <input type="text" id="subject" name="subject">
+                </div>
+
+                <div id="input-field-body" class="valid"><img src="../img/svg/email.svg">
+                    <textarea type="text" id="body" name="body"></textarea>
+                </div>
+
+            </div>
+
+            <div class="captcha-field">
+                <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6LdizdUUAAAAAGcRvcOvAHudCQ6-vjYklb6C3PEa"></div>
+            </div>
+
+            <div id="button-field-submit">
+                <button id="submit-button" type="submit"></button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <%- include('../../partials/en/en-footer') %>
+
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/mail.js"></script>
+
+</body>
+
+</html>

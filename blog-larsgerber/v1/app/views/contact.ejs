@@ -1,0 +1,84 @@
+<%- include('partials/header'); -%>
+
+<div class="container-contact">
+    <h1><%= title %></h1>
+    <form id="my_captcha_form" action="javascript:void(0);">
+        <label for=" name">Name:</label>
+        <input type="text" id="name" name="name" required pattern=".*\S+.*" />
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required pattern=".*\S+.*" />
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required pattern=".*\S+.*" />
+
+        <label for="body">Message:</label>
+        <textarea id="body" name="body" required pattern=".*\S+.*"></textarea>
+
+        <div class="container-captcha">
+            <div class="g-recaptcha" data-sitekey="<%= captcha %>"></div>
+        </div>
+
+        <button class="btn-send">Send</button>
+    </form>
+</div>
+
+<script>
+
+    // send button
+    const send = document.querySelector("button.btn-send");
+
+    send.addEventListener("click", (e) => {
+
+        send.disabled = true;
+
+        const endpoint = "/mail/send";
+
+        const data = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            body: document.getElementById("body").value,
+            key: document.getElementById("g-recaptcha-response").value,
+        };
+
+        function isValid(data) {
+            for (var i in data) {
+                if (!data[i].replace(/\s/g, "").length) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        if (isValid(data)) {
+            send.innerHTML = "Sending...";
+
+            fetch(endpoint, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then(function (response) {
+                    if (response.status == "success") {
+                        send.disabled = true;
+                        send.innerHTML = "Sent!";
+                        send.style.backgroundColor = "#429713";
+                    } else {
+                        send.disabled = false;
+                        send.innerHTML = "Error!";
+                        send.style.backgroundColor = "#b20404";
+                    }
+                })
+                .catch((err) => alert(err));
+        } else {
+            send.disabled = false;
+        }
+    });
+
+</script>
+
+<%- include('partials/footer'); -%>

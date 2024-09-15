@@ -1,0 +1,66 @@
+#bild2 {
+    height: 200px;
+    width: 200px;
+}
+
+@media screen and (max-width: 910px) {
+
+    #bild2 {
+        width: 150px;
+        height: 150px;
+    }
+
+    section h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 845px) {
+
+    #bild2 {
+        width: 150px;
+        height: 150px;
+    }
+
+    section h1 {
+        font-size: 3.3rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    section h1 {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 725px) {
+
+    #bild2 {
+        width: 100px;
+        height: 100px;
+    }
+
+    section h1 {
+        font-size: 2.7rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .signature {
+        font-size: 2.7rem;
+    }
+}
+
+@media screen and (max-width: 527px) {
+
+    #bild2 {
+        display: none;
+    }
+
+    #text-container-items {
+        padding-left: 0;
+    }
+}

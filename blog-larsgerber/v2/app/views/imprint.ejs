@@ -1,0 +1,56 @@
+<%- include('partials/header'); -%>
+
+    <div>
+        <h1>Imprint</h1>
+
+        <h2>Disclaimer</h2>
+        <p>
+            Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität,
+            Zuverlässigkeit und Vollständigkeit der Informationen.
+
+            Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff
+            oder
+            der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch
+            technische Störungen entstanden sind, werden ausgeschlossen.
+
+            Alle Angebote sind unverbindlich. Der Autor behält es sich ausdrücklich vor, Teile der Seiten oder das
+            gesamte
+            Angebot ohne besondere Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise
+            oder endgültig einzustellen.
+        </p>
+
+        <h2>Disclaimer for links</h2>
+        <p>
+            Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche
+            Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf
+            eigene
+            Gefahr des jeweiligen Nutzers.
+        </p>
+
+        <h2>Copyrights</h2>
+        <p>
+            Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website,
+            gehören ausschliesslich Lars Gerber oder den speziell genannten Rechteinhabern. Für die Reproduktion
+            jeglicher
+            Elemente ist die schriftliche Zustimmung des Urheberrechtsträgers im Voraus einzuholen.
+        </p>
+
+        <h2>Favicon creator</h2>
+        <a href="https://www.flaticon.com/authors/those-icons" title="Those Icon" class="impressum-icon">
+            <img src="/icon/favicon.png">
+            <p>from Those Icons</p>
+        </a>
+
+        <% var dD = new Date(deployDate); %>
+        <% var sD = new Date(startDate); %>
+        
+        <br>
+        <hr>
+        <br>
+        <b>Last successful deployment:</b>
+        <p><%= dD.toLocaleString(); %></p>
+        <b>Last application restart:</b>
+        <p><%= sD.toLocaleString(); %></p>
+    </div>
+
+    <%- include('partials/footer'); -%>

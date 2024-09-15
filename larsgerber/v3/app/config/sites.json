@@ -1,0 +1,108 @@
+{
+    "sitemap": [
+        {
+            "req": "/",
+            "res": "/de",
+            "act": "red"
+        },
+        {
+            "req": "/de",
+            "res": "content/de/de-index",
+            "act": "ren"
+        },
+        {
+            "req": "/en",
+            "res": "content/en/en-index",
+            "act": "ren"
+        },
+        {
+            "req": "/de/blog",
+            "res": "content/de/de-blog",
+            "act": "ren"
+        },
+        {
+            "req": "/en/blog",
+            "res": "content/en/en-blog",
+            "act": "ren"
+        },
+        {
+            "req": "/de/blog/become-your-own-webhoster",
+            "res": "content/de/de-blog/de-blog1",
+            "act": "ren"
+        },
+        {
+            "req": "/en/blog/become-your-own-webhoster",
+            "res": "content/en/en-blog/en-blog1",
+            "act": "ren"
+        },
+        {
+            "req": "/de/blog/host-your-node-js-project",
+            "res": "content/de/de-blog/de-blog2",
+            "act": "ren"
+        },
+        {
+            "req": "/en/blog/host-your-node-js-project",
+            "res": "content/en/en-blog/en-blog2",
+            "act": "ren"
+        },
+        {
+            "req": "/de/blog/host-your-minecraft-server",
+            "res": "content/de/de-blog/de-blog3",
+            "act": "ren"
+        },
+        {
+            "req": "/en/blog/host-your-minecraft-server",
+            "res": "content/en/en-blog/en-blog3",
+            "act": "ren"
+        },
+        {
+            "req": "/de/blog/set-up-pi-hole",
+            "res": "content/de/de-blog/de-blog4",
+            "act": "ren"
+        },
+        {
+            "req": "/en/blog/set-up-pi-hole",
+            "res": "content/en/en-blog/en-blog4",
+            "act": "ren"
+        },
+        {
+            "req": "/de/contact",
+            "res": "content/de/de-contact",
+            "act": "ren"
+        },
+        {
+            "req": "/en/contact",
+            "res": "content/en/en-contact",
+            "act": "ren"
+        },
+        {
+            "req": "/de/impressum",
+            "res": "content/de/de-impressum",
+            "act": "ren"
+        },
+        {
+            "req": "/en/impressum",
+            "res": "content/en/en-impressum",
+            "act": "ren"
+        },
+        {
+            "req": "/api",
+            "act": "api"
+        },
+        {
+            "req": "/de/*",
+            "res": "content/de/de-404",
+            "act": "sts"
+        },
+        {
+            "req": "/en/*",
+            "res": "content/en/en-404",
+            "act": "sts"
+        },
+        {
+            "req": "*",
+            "res": "/de",
+            "act": "mve"
+        }
+    ]
+}
